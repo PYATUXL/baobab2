@@ -1,0 +1,57 @@
+<?php
+abstract class Product {
+    protected $productName;
+    protected $productDescription;
+    protected $productPrice;
+    protected $productCategory;
+
+    public function __construct($productName, $productDescription, $productPrice, $productCategory) {
+        $this->productName = $productName;
+        $this->productDescription = $productDescription;
+        $this->productPrice = $productPrice;
+        $this->productCategory = $productCategory;
+    }
+
+    public function getName() {
+        return $this->productName;
+    }
+
+    public function getDescription() {
+        return $this->productDescription;
+    }
+
+    public function getPrice() {
+        return $this->productPrice;
+    }
+
+    public function getCategory() {
+        return $this->productCategory;
+    }
+
+    abstract public function getInfo();
+}
+
+
+class ElectronicsProduct extends Product {
+  
+    public function getInfo() {
+        return "Категория: " . $this->productCategory . ", Товар: " . $this->productName . " описание " . $this->productDescription . ", Цена: " . $this->productPrice;
+    }
+}
+
+class ClothingProduct extends Product {
+ 
+    public function getInfo() {
+        return "Категория: " . $this->productCategory . ", Товар: " . $this->productName . " описание " . $this->productDescription . ", Цена: " . $this->productPrice;
+    }
+}
+
+
+
+$electronicsProduct = new ElectronicsProduct("phone", "64gb|3ram", 9000, "Категория 1");
+$clothingProduct = new ClothingProduct("Rick Owens Boots Megatoth", "луноходы", 150000, "Категория 2");
+
+
+echo $electronicsProduct->getInfo() . "\n";
+echo $clothingProduct->getInfo() . "\n";
+?>
