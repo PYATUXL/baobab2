@@ -55,3 +55,9 @@ $clothingProduct = new ClothingProduct("Rick Owens Boots Megatoth", "лунох�
 echo $electronicsProduct->getInfo() . "\n";
 echo $clothingProduct->getInfo() . "\n";
 ?>
+
+
+
+
+Категория: Категория 1, Товар: phone описание 64gb|3ram, Цена: 9000
+Категория: Категория 2, Товар: Rick Owens Boots Megatoth описание луноходы, Цена: 150000
