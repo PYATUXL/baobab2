@@ -1,63 +1,72 @@
 <?php
 abstract class Product {
-    protected $productName;
-    protected $productDescription;
-    protected $productPrice;
-    protected $productCategory;
-
-    public function __construct($productName, $productDescription, $productPrice, $productCategory) {
-        $this->productName = $productName;
-        $this->productDescription = $productDescription;
-        $this->productPrice = $productPrice;
-        $this->productCategory = $productCategory;
-    }
-
-    public function getName() {
-        return $this->productName;
-    }
-
-    public function getDescription() {
-        return $this->productDescription;
-    }
-
-    public function getPrice() {
-        return $this->productPrice;
-    }
-
-    public function getCategory() {
-        return $this->productCategory;
-    }
-
-    abstract public function getInfo();
-}
-
-
-class ElectronicsProduct extends Product {
+    protected $name;
+  protected $description;
+  protected $price;
+  protected $category;
   
-    public function getInfo() {
-        return "Категория: " . $this->productCategory . ", Товар: " . $this->productName . " описание " . $this->productDescription . ", Цена: " . $this->productPrice;
+    public function constructor($name,$description,$price,$category) {
+    $this->name = $name;
+    $this->description = $description;
+    $this->price = $price;
+    $this->category = $category;
+  }
+  
+  public function GetName()
+  {
+    return $this->name;
+  }
+  
+    public function GetDescription()
+    {
+      return $this->description;
     }
+    
+    public function GetPrice()
+    {
+      return $this->price;
+    }
+    
+    public function GetCategory()
+    {
+      return $this->category;
+    }
+  
 }
 
-class ClothingProduct extends Product {
- 
-    public function getInfo() {
-        return "Категория: " . $this->productCategory . ", Товар: " . $this->productName . " описание " . $this->productDescription . ", Цена: " . $this->productPrice;
-    }
-}
+class FoodProduct extends Product {}
+class VegetableProduct extends Product{}
+
+$potato = new VegetableProduct();
+$milk = new FoodProduct();
+
+
+$potato->Constructor("Название: Картошка","Описание: жёлтая такая","Цена: 50р.|кг","Категория: овощи");
+$milk->Constructor("Название: Молоко","Описание: коровье","Цена: 120","Категория: молочная продукция");
+
+
+echo $potato->GetName() . "\n";
+echo $potato->GetDescription() . "\n";
+echo $potato->GetPrice() . "\n";
+echo $potato->GetCategory() . "\n" . "\n";
+
+echo $milk->GetName() . "\n";
+echo $milk->GetDescription() . "\n";
+echo $milk->GetPrice() . "\n";
+echo $milk->GetCategory();
 
 
 
-$electronicsProduct = new ElectronicsProduct("phone", "64gb|3ram", 9000, "Категория 1");
-$clothingProduct = new ClothingProduct("Rick Owens Boots Megatoth", "луноходы", 150000, "Категория 2");
+
+Название: Картошка
+Описание: жёлтая такая
+Цена: 150р.|кг
+Категория: овощи
+
+Название: Молоко
+Описание: коровье
+Цена: 120
+Категория: молочная продукция
 
 
-echo $electronicsProduct->getInfo() . "\n";
-echo $clothingProduct->getInfo() . "\n";
-?>
 
-
-
-
-Категория: Категория 1, Товар: phone описание 64gb|3ram, Цена: 9000
-Категория: Категория 2, Товар: Rick Owens Boots Megatoth описание луноходы, Цена: 150000
