@@ -1,72 +1,18 @@
 <?php
-abstract class Product {
-    protected $name;
-  protected $description;
-  protected $price;
-  protected $category;
-  
-    public function constructor($name,$description,$price,$category) {
-    $this->name = $name;
-    $this->description = $description;
-    $this->price = $price;
-    $this->category = $category;
-  }
-  
-  public function GetName()
-  {
-    return $this->name;
-  }
-  
-    public function GetDescription()
-    {
-      return $this->description;
+class Joker extends Card {
+      public $value = 21;
     }
     
-    public function GetPrice()
-    {
-      return $this->price;
-    }
+    $deck = new Deck();
+    $hand = new Hand();
     
-    public function GetCategory()
-    {
-      return $this->category;
+    // Add Jokers to the deck
+    for ($i = 0; $i < 2; $i++) {
+        $deck->addCard(new Joker());
+    }  
+    
+    if ($hand->countCards(Joker::class) == 2) {
+        echo "You win!";
+    } else {
+        // Play the game as usual
     }
-  
-}
-
-class FoodProduct extends Product {}
-class VegetableProduct extends Product{}
-
-$potato = new VegetableProduct();
-$milk = new FoodProduct();
-
-
-$potato->Constructor("Название: Картошка","Описание: жёлтая такая","Цена: 50р.|кг","Категория: овощи");
-$milk->Constructor("Название: Молоко","Описание: коровье","Цена: 120","Категория: молочная продукция");
-
-
-echo $potato->GetName() . "\n";
-echo $potato->GetDescription() . "\n";
-echo $potato->GetPrice() . "\n";
-echo $potato->GetCategory() . "\n" . "\n";
-
-echo $milk->GetName() . "\n";
-echo $milk->GetDescription() . "\n";
-echo $milk->GetPrice() . "\n";
-echo $milk->GetCategory();
-
-
-
-
-Название: Картошка
-Описание: жёлтая такая
-Цена: 150р.|кг
-Категория: овощи
-
-Название: Молоко
-Описание: коровье
-Цена: 120
-Категория: молочная продукция
-
-
-
