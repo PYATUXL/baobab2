@@ -6,7 +6,6 @@ class Joker extends Card {
     $deck = new Deck();
     $hand = new Hand();
     
-    // Add Jokers to the deck
     for ($i = 0; $i < 2; $i++) {
         $deck->addCard(new Joker());
     }  
@@ -14,5 +13,5 @@ class Joker extends Card {
     if ($hand->countCards(Joker::class) == 2) {
         echo "You win!";
     } else {
-        // Play the game as usual
+
     }
