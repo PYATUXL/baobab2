@@ -12,6 +12,5 @@ class Joker extends Card {
     
     if ($hand->countCards(Joker::class) == 2) {
         echo "You win!";
-    } else {
 
     }
