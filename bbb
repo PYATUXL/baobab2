@@ -6,7 +6,6 @@ foreach ($players as $player) {
 }
 <?php
 
-// Создаем массив с картами и их значениями
 $cards = array(
     array('Король', '13'),
     array('Дама', '12'),
@@ -22,10 +21,8 @@ $cards = array(
     array('2', '2')
 );
 
-// Количество игроков
 $players = 2;
 
-// Раздаем карты игрокам
 for ($i = 0; $i < $players; $i++) {
     echo "Раздаем карты игроку " . ($i + 1) . ":\n";
     shuffle($cards);
