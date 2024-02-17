@@ -1,16 +1,6 @@
 <?php
-class Joker extends Card {
-      public $value = 21;
-    }
-    
-    $deck = new Deck();
-    $hand = new Hand();
-    
-    for ($i = 0; $i < 2; $i++) {
-        $deck->addCard(new Joker());
-    }  
-    
-    if ($hand->countCards(Joker::class) == 2) {
-        echo "You win!";
-
-    }
+$players = 2;
+foreach ($players as $player) {
+    [$card1, $card2] = [$player['face'], $player['suit']];
+    echo "У игрока $player есть карты: $card1 и $card2";
+}
