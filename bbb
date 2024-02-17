@@ -4,3 +4,32 @@ foreach ($players as $player) {
     [$card1, $card2] = [$player['face'], $player['suit']];
     echo "У игрока $player есть карты: $card1 и $card2";
 }
+<?php
+
+// Создаем массив с картами и их значениями
+$cards = array(
+    array('Король', '13'),
+    array('Дама', '12'),
+    array('Валет', '11'),
+    array('10', '10'),
+    array('9', '9'),
+    array('8', '8'),
+    array('7', '7'),
+    array('6', '6'),
+    array('5', '5'),
+    array('4', '4'),
+    array('3', '3'),
+    array('2', '2')
+);
+
+// Количество игроков
+$players = 2;
+
+// Раздаем карты игрокам
+for ($i = 0; $i < $players; $i++) {
+    echo "Раздаем карты игроку " . ($i + 1) . ":\n";
+    shuffle($cards);
+    $hand = array_slice($cards, 0, 5);
+    foreach ($hand as $card) {
+        echo $card[0] . "\n"; // Выводим карту
+    }
